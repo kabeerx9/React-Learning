@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 const NewExpense = (props) => {
@@ -8,10 +8,26 @@ const NewExpense = (props) => {
       ...enteredExpenseData,
     };
     props.onAddExpense(expenseData);
+    setFlag(false);
+  };
+
+  const [flag, setFlag] = useState(false);
+
+  const setFlagHandler = () => {
+    setFlag(true);
+  };
+  const cancelFlagHandler = () => {
+    setFlag(false);
   };
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
+      {!flag && <button onClick={setFlagHandler}>Add new Expense</button>}
+      {flag && (
+        <ExpenseForm
+          onCancel={cancelFlagHandler}
+          onSaveExpenseData={onSaveExpenseDataHandler}
+        />
+      )}
     </div>
   );
 };
