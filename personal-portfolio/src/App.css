@@ -15,6 +15,10 @@
   font-weight: 400;
 }
 
+.custom-link {
+  color: white;
+  text-decoration: none;
+}
 /************ Default Css ************/
 * {
   margin: 0;

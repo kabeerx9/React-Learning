@@ -2,39 +2,55 @@ import Nav from "react-bootstrap/Nav";
 import { Container, Row, Col, Tab } from "react-bootstrap";
 import ProjectCard from "./ProjectCard";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import projImg1 from "../assets/img/project-img1.png";
-
+import expenseImg from "../assets/img/expense.png";
+import faceMask from "../assets/img/face_mask.png";
+import signLanguage from "../assets/img/sign_language2.png";
+import carImg from "../assets/img/car_image.png";
 const Projects = () => {
   const projects = [
     {
       title: "Face Mask Detection",
       description: "Developement",
-      imgUrl: projImg1,
+      imgUrl: faceMask,
+      index: 0,
     },
     {
       title: "Sign Language Detection",
       description: "Developement",
-      imgUrl: projImg1,
+      imgUrl: signLanguage,
+      index: 1,
     },
     {
       title: "Car Rental Website",
       description: "Design and Developement",
-      imgUrl: projImg1,
+      imgUrl: carImg,
+      index: 2,
     },
     {
       title: "Expense Tracker",
       description: "Design and Developement",
-      imgUrl: projImg1,
+      imgUrl: expenseImg,
+      index: 3,
     },
   ];
 
+  const links = [
+    "https://github.com/kabeerx9/Face_Mask_Detection",
+    "https://github.com/kabeerx9/Capstone",
+    "https://github.com/kabeerx9/Kabeer-Rental_car",
+    "https://kabeer-expense-tracker.netlify.app/",
+  ];
+
   return (
-    <section className="project" id="project">
+    <section className="project" id="projects">
       <Container>
         <Row>
           <Col>
             <h2>Projects</h2>
-            <p>Lorem Ipsum</p>
+            <p>
+              Few Projects that i created which include Front-end and Deep
+              Learning
+            </p>
             <Tab.Container id="project-tabs" defaultActiveKey="first">
               <Nav
                 variant="pills"
@@ -55,12 +71,22 @@ const Projects = () => {
                 <Tab.Pane eventKey="first">
                   <Row>
                     {projects.map((project, index) => {
-                      return <ProjectCard key={index} {...project} />;
+                      return (
+                        <ProjectCard
+                          links={links}
+                          key={index}
+                          project={project}
+                        />
+                      );
                     })}
                   </Row>
                 </Tab.Pane>
-                <Tab.Pane eventKey="second">Lorem Ipsum</Tab.Pane>
-                <Tab.Pane eventKey="third">Lorem Ipsum</Tab.Pane>
+                <Tab.Pane eventKey="second">
+                  Will be adding more soon ...
+                </Tab.Pane>
+                <Tab.Pane eventKey="third">
+                  Will be adding more soon ...
+                </Tab.Pane>
               </Tab.Content>
             </Tab.Container>
           </Col>
